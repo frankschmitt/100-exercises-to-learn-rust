@@ -1,0 +1,10 @@
+== Running
+=== All tests
+To run all tests for the current exercise with Workshop Runner:
+
+wr
+
+=== Specific test case
+ "cargo" "build" "--manifest-path" "exercises/02_basic_calculator/02_variables/Cargo.toml" "--all-targets" "--color" "always" "-q"
+
+
