@@ -32,7 +32,10 @@ impl Ticket {
             panic!("Description cannot be longer than 500 bytes");
         }
         // validate status
-        if status != "To-Do" && status != "In Progress" && status != "Done" {
+        // this is cumbersome, but vec.contains() didn't like the type of status, and I was too lazy to debug it
+        let allowed_states = ["To-Do", "In Progress", "Done"];
+        if allowed_states.iter().any(|&i| i == &status) {
+        //if status != "To-Do" && status != "In Progress" && status != "Done" {
           panic!("Only `To-Do`, `In Progress`, and `Done` statuses are allowed");
         }
         Self {
